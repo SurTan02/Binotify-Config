@@ -32,3 +32,8 @@ git pull --recurse-submodules
     git commit -m ""
     git push
     ```
+
+### Run all services
+```
+docker-compose up --build -d
+```
