@@ -1,0 +1,45 @@
+version: "3.3"
+services:
+  binotify-rest-service-app:
+    build:
+      context: ./binotify-rest-service
+      dockerfile: Dockerfile
+    image: binotify-rest-service-app:latest
+    volumes:
+      - ./binotify-rest-service/src:/usr/src/app/src
+    ports:
+      - 8080:80
+
+  binotify-rest-service-db:
+    image: mysql:latest
+    restart: always
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_DATABASE: "database"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    volumes:
+      - ./binotify-rest-service/database.sql:/docker-entrypoint-initdb.d/database.sql
+
+  binotify-app-web:
+    build:
+      context: ./binotify-app
+      dockerfile: Dockerfile
+    image: binotify-app-web:latest
+    volumes:
+      - ./binotify-app/src:/var/www/html
+    ports:
+      - 8008:80
+
+  binotify-app-db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 15432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=database
+    volumes:
+      - ./binotify-app/database.sql:/docker-entrypoint-initdb.d/database.sql
