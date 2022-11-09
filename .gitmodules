@@ -1,0 +1,12 @@
+[submodule "binotify-app"]
+	path = binotify-app
+	url = https://gitlab.informatika.org/if3110-2022-k02-02-07/binotify-app.git
+[submodule "binotify-rest-service"]
+	path = binotify-rest-service
+	url = https://gitlab.informatika.org/if3110-2022-k02-02-07/binotify-rest-service.git
+[submodule "binotify-premium-app"]
+	path = binotify-premium-app
+	url = https://gitlab.informatika.org/if3110-2022-k02-02-07/binotify-premium-app.git
+[submodule "binotify-soap-service"]
+	path = binotify-soap-service
+	url = https://gitlab.informatika.org/if3110-2022-k02-02-07/binotify-soap-service.git
