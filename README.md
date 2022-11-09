@@ -8,7 +8,7 @@ git clone --recurse-submodules https://gitlab.informatika.org/if3110-2022-k02-02
 ```
 ### Pull
 ```
-git submodule update --init --recursive
+git pull --recurse-submodules
 ```
 
 ### Commit
