@@ -52,3 +52,15 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
+
+  binotify-premium-app:
+    build:
+      context: ./binotify-premium-app
+      dockerfile: Dockerfile
+    image: binotify-premium-app:latest
+    volumes:
+      - ./binotify-premium-app/src:/usr/src/app/src
+      - ./binotify-premium-app/public:/usr/src/app/public
+      - ./binotify-premium-app/index.html:/usr/src/app/index.html
+    ports:
+      - ${BINOTIFY_PREMIUM_APP_PORT:-5173}:${BINOTIFY_PREMIUM_APP_PORT:-5173}
