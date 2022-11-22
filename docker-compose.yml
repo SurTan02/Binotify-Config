@@ -64,6 +64,8 @@ services:
       - ./binotify-premium-app/index.html:/usr/src/app/index.html
     ports:
       - ${BINOTIFY_PREMIUM_APP_PORT:-5173}:${BINOTIFY_PREMIUM_APP_PORT:-5173}
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
   binotify-soap-service:
     build:
