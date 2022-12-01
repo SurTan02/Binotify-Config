@@ -51,7 +51,7 @@ services:
       interval: 30s
       timeout: 30s
       retries: 5
-      start_period: 30s
+      start_period: 5s
 
   binotify-rest-service-cache:
     image: redis:7.0-alpine
@@ -105,4 +105,4 @@ services:
       interval: 30s
       timeout: 30s
       retries: 5
-      start_period: 30s
+      start_period: 5s
