@@ -9,6 +9,12 @@ services:
       - ./binotify-app/src:/var/www/html
     ports:
       - ${BINOTIFY_APP_WEB_PORT:-8008}:80
+    environment:
+      - BINOTIFY_APP_DB=${BINOTIFY_APP_DB:-binotify-app-db}
+      - BINOTIFY_APP_DB_USER=${BINOTIFY_APP_DB_USER:-postgres}
+      - BINOTIFY_APP_DB_PASSWORD=${BINOTIFY_APP_DB_PASSWORD:-postgres}
+      - BINOTIFY_APP_DB_NAME=${BINOTIFY_APP_DB_NAME:-database}
+      - BINOTIFY_APP_SOAP_API_KEY=${BINOTIFY_APP_SOAP_API_KEY}
 
   binotify-app-db:
     image: postgres:latest
